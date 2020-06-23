@@ -4,7 +4,7 @@ ENV MAVEN_VERSION=3.5.3
 ENV SONAR_SCANNER_VERSION=3.2.0.1227
 
 # sonar-scanner
-RUN wget -O sonar-scanner-${SONAR_SCANNER_VERSION}-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux.zip && \
+RUN wget -O sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux.zip && \
     unzip sonar-scanner-cli-${SONAR_SCANNER_VERSION} && \
     rm -rf sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip && \
     mv sonar-scanner-${SONAR_SCANNER_VERSION} /usr/lib/sonar-scanner
