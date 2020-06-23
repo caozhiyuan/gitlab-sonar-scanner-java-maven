@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker build -t forcelate/gitlab-sonar-scanner-java-maven:dev .
+docker build -t caozhiyuan/gitlab-sonar-scanner-java-maven .
