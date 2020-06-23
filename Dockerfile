@@ -3,7 +3,7 @@ FROM openjdk:8-jdk-alpine
 RUN echo "http://mirrors.ustc.edu.cn/alpine/v3.4/main/" > /etc/apk/repositories
 RUN echo "http://mirrors.ustc.edu.cn/alpine/v3.4/community" >> /etc/apk/repositories
 RUN echo "http://mirrors.ustc.edu.cn/alpine/edge/testing" >> /etc/apk/repositories
-RUN apk add curl jq procps --allow-untrusted
+RUN apk add curl jq procps unzip --allow-untrusted
 
 ENV MAVEN_VERSION=3.5.3
 ENV SONAR_SCANNER_VERSION=3.2.0.1227
