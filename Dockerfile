@@ -4,7 +4,7 @@ ENV MAVEN_VERSION=3.5.3
 ENV SONAR_SCANNER_VERSION=3.2.0.1227
 
 # sonar-scanner
-RUN wget https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip && \
+RUN wget -O sonar-scanner-${SONAR_SCANNER_VERSION}-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux.zip && \
     unzip sonar-scanner-cli-${SONAR_SCANNER_VERSION} && \
     rm -rf sonar-scanner-cli-${SONAR_SCANNER_VERSION}.zip && \
     mv sonar-scanner-${SONAR_SCANNER_VERSION} /usr/lib/sonar-scanner
@@ -29,3 +29,8 @@ ENV PATH="/usr/lib/sonar-scanner/bin:${PATH}"
 
 # maven-surefire-plugin issue: install procps or downgrade to version: 2.20
 # JIRA issue: https://issues.apache.org/jira/browse/SUREFIRE-1422
+
+RUN echo "http://mirrors.ustc.edu.cn/alpine/v3.4/main/" > /etc/apk/repositories
+RUN echo "http://mirrors.ustc.edu.cn/alpine/v3.4/community" >> /etc/apk/repositories
+RUN echo "http://mirrors.ustc.edu.cn/alpine/edge/testing" >> /etc/apk/repositories
+RUN apk add curl jq --allow-untrusted
