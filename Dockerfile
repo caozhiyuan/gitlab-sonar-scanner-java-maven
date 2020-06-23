@@ -25,3 +25,4 @@ RUN ln -s /usr/lib/sonar-scanner-ext.sh /bin/sonar-scanner-ext
 ENV PATH="/usr/lib/mvn/bin:${PATH}"
 ENV PATH="/usr/lib/sonar-scanner/bin:${PATH}"
 
+RUN sed -i "s/use_embedded_jre=true/use_embedded_jre=false/g" /usr/lib/sonar-scanner/bin/sonar-scanner
